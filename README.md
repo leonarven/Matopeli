@@ -3,4 +3,8 @@ Matopeli
 
 Lausekielisen Ohjelmoinnin TIEP1-kurssille tehtävä toinen harjoitustyö vuosikertaa 2013
 
-(ensimmäinen commit kun on varmaa että saa tunkea tänne)
+Tilanteessa jossa sinä olet toinen kurssin suorittaja, ethän kopioi koodia itsellesi.
+Jos kopioit, rukoile ettet paljastu. Olen valmis menemään vaikka suohon oman koodini 
+puolesta.
+
+Jos olet kurssin tekijä joka löytää tämän hakukoneella, niin siinäpä tutkit
