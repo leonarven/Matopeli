@@ -1,0 +1,11 @@
+~~~~~~~~~~~
+~ W O R M ~
+~~~~~~~~~~~
+Worm length: 5, wormholes: 0.
+..........
+.oooxX   .
+.   +    .
+.        .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Bye, see you soon.

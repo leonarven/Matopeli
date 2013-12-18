@@ -1,0 +1,25 @@
+~~~~~~~~~~~
+~ W O R M ~
+~~~~~~~~~~~
+Worm length: 5, wormholes: 0.
+..........
+.oooxX   .
+.   +    .
+.        .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 0.
+..........
+. ooox   .
+.   +X   .
+.        .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 6, wormholes: 0.
+..........
+. oooo   .
+.   Xx   .
+.+       .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Bye, see you soon.

@@ -1,0 +1,571 @@
+~~~~~~~~~~~
+~ W O R M ~
+~~~~~~~~~~~
+Worm length: 5, wormholes: 0.
+.......
+.oooxX.
+.     .
+.   + .
+.     .
+.     .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 0.
+.......
+. ooox.
+.    X.
+.   + .
+.     .
+.     .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 0.
+.......
+.  ooo.
+.    x.
+.   +X.
+.     .
+.     .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 6, wormholes: 0.
+.......
+.  ooo.
+.    o.
+.   Xx.
+.  +  .
+.     .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 6, wormholes: 0.
+.......
+.   oo.
+.    o.
+.   xo.
+.  +X .
+.     .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 7, wormholes: 0.
+.......
+.  +oo.
+.    o.
+.   oo.
+.  Xx .
+.     .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 7, wormholes: 0.
+.......
+.  +Xx.
+.    o.
+.   oo.
+.  oo .
+.     .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 8, wormholes: 0.
+.......
+.  Xxo.
+.    o.
+.   oo.
+.  oo .
+.    +.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 8, wormholes: 0.
+.......
+.  ooo.
+.    o.
+.   oo.
+.  Xx .
+.    +.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 8, wormholes: 0.
+.......
+.   oo.
+.    o.
+.   oo.
+.  xo .
+.  X +.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 8, wormholes: 0.
+.......
+.    o.
+.    o.
+.   oo.
+.  oo .
+.  xX+.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 9, wormholes: 0.
+.......
+.    o.
+.   +o.
+.   oo.
+.  oo .
+.  oxX.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 9, wormholes: 0.
+.......
+.     .
+.   +o.
+.   oo.
+.  ooX.
+.  oox.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 9, wormholes: 0.
+.......
+.     .
+.   +X.
+.   ox.
+.  ooo.
+.  ooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 0.
+.......
+.+    .
+.   Xx.
+.   oo.
+.  ooo.
+.  ooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 0.
+.......
+.+  X .
+.   xo.
+.   oo.
+.  oo .
+.  ooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 0.
+.......
+.+ Xx .
+.   oo.
+.   oo.
+.  oo .
+.  oo .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 0.
+.......
+.+Xxo .
+.   oo.
+.   oo.
+.  oo .
+.  o  .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 11, wormholes: 0.
+.......
+.Xxoo+.
+.   oo.
+.   oo.
+.  oo .
+.  o  .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 11, wormholes: 0.
+.......
+.xooo+.
+.X  oo.
+.   oo.
+.  oo .
+.     .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 11, wormholes: 0.
+.......
+.oooo+.
+.x  oo.
+.X  oo.
+.   o .
+.     .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 11, wormholes: 0.
+.......
+.oooo+.
+.o  oo.
+.x  oo.
+.X    .
+.     .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 11, wormholes: 0.
+.......
+.oooo+.
+.o  oo.
+.o   o.
+.x    .
+.X    .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 11, wormholes: 0.
+.......
+.oooo+.
+.o  oo.
+.o    .
+.o    .
+.xX   .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 11, wormholes: 0.
+.......
+.oooo+.
+.o  o .
+.o    .
+.o    .
+.oxX  .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 11, wormholes: 0.
+.......
+.oooo+.
+.o    .
+.o    .
+.o    .
+.ooxX .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 11, wormholes: 0.
+.......
+.ooxX+.
+.o    .
+.o    .
+.o    .
+.oooo .
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 12, wormholes: 0.
+.......
+.oooxX.
+.o    .
+.o    .
+.o    .
+.oooo+.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 12, wormholes: 0.
+.......
+.ooooo.
+.o    .
+.o    .
+.o    .
+.ooxX+.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 13, wormholes: 0.
+.......
+.ooooo.
+.o    .
+.o   +.
+.o    .
+.oooxX.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 13, wormholes: 0.
+.......
+.oooo .
+.o    .
+.o   +.
+.o   X.
+.oooox.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 14, wormholes: 0.
+.......
+.oooo .
+.o    .
+.o+  X.
+.o   x.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 14, wormholes: 0.
+.......
+.ooo  .
+.o   X.
+.o+  x.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 14, wormholes: 0.
+.......
+.oo   .
+.o  Xx.
+.o+  o.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 14, wormholes: 0.
+.......
+.o    .
+.o Xxo.
+.o+  o.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 14, wormholes: 0.
+.......
+.     .
+.oXxoo.
+.o+  o.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 14, wormholes: 0.
+.......
+.     .
+.Xxooo.
+.o+  o.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 14, wormholes: 0.
+.......
+.     .
+.ooooo.
+.X+  o.
+.x   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 15, wormholes: 0.
+.......
+.    +.
+.ooooo.
+.xX  o.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 15, wormholes: 0.
+.......
+.    +.
+.Xxooo.
+.oo  o.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 15, wormholes: 0.
+.......
+.X   +.
+.xoooo.
+.o   o.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 15, wormholes: 0.
+.......
+.xX  +.
+.ooooo.
+.    o.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 15, wormholes: 0.
+.......
+.oxX +.
+.ooooo.
+.    o.
+.    o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 15, wormholes: 0.
+.......
+.ooxX+.
+.ooooo.
+.    o.
+.    o.
+. oooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.oooxX.
+.ooooo.
+.  + o.
+.    o.
+. oooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.ooooo.
+.ooooo.
+.  + o.
+.    o.
+. Xxoo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.oooo .
+.ooooo.
+.  + o.
+.    o.
+.Xxooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.ooo  .
+.ooooo.
+.  + o.
+.X   o.
+.xoooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.oo   .
+.ooooo.
+.X + o.
+.x   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.o    .
+.ooooo.
+.xX+ o.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.     .
+.ooooo.
+.ox+ o.
+.oX  o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.     .
+. oooo.
+.oo+ o.
+.oxX o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.     .
+.  ooo.
+.oo+ o.
+.ooxXo.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.     .
+.   oo.
+.oo+Xo.
+.oooxo.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.     .
+.   Xo.
+.oo+xo.
+.ooooo.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.     .
+.   oX.
+.oo+ox.
+.ooooo.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.    X.
+.    x.
+.oo+oo.
+.ooooo.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.   Xx.
+.    o.
+.oo+ o.
+.ooooo.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.  Xxo.
+.    o.
+.oo+ o.
+.ooo o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+. Xxoo.
+.    o.
+.oo+ o.
+.oo  o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.Xxooo.
+.    o.
+.oo+ o.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.xoooo.
+.X   o.
+.o + o.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 16, wormholes: 0.
+.......
+.ooooo.
+.x   o.
+.X + o.
+.o   o.
+.ooooo.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Bye, see you soon.

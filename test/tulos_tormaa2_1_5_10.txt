@@ -1,0 +1,67 @@
+~~~~~~~~~~~
+~ W O R M ~
+~~~~~~~~~~~
+Worm length: 5, wormholes: 0.
+..........
+.oooxX   .
+.   +    .
+.        .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 1.
+.....X....
+. ooox   .
+.   +    .
+.        .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 2.
+.....xX...
+.  ooo   .
+.   +    .
+.        .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 3.
+.....oxX..
+.   oo   .
+.   +    .
+.        .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 3.
+.....oox..
+.    o X .
+.   +    .
+.        .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 3.
+.....ooo..
+.      x .
+.   +  X .
+.        .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 3.
+..... oo..
+.      o .
+.   +  x .
+.      X .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 3.
+.....  o..
+.      o .
+.   +  o .
+.     Xx .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 3.
+.....   ..
+.      o .
+.   +  o .
+.    Xxo .
+..........
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Bye, see you soon.

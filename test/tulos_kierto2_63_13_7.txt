@@ -1,0 +1,514 @@
+~~~~~~~~~~~
+~ W O R M ~
+~~~~~~~~~~~
+Worm length: 5, wormholes: 0.
+.......
+.oooxX.
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.    +.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 1.
+.....X.
+. ooox.
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.    +.
+.......
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 5, wormholes: 2.
+.....x.
+.  ooo.
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.    +.
+.....X.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 6, wormholes: 2.
+.....o.
+.  ooo.
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.   + .
+.     .
+.     .
+.    X.
+.....x.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 6, wormholes: 2.
+.....o.
+.   oo.
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.   + .
+.     .
+.    X.
+.    x.
+.....o.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 6, wormholes: 2.
+.....o.
+.    o.
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.   + .
+.    X.
+.    x.
+.    o.
+.....o.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 6, wormholes: 2.
+.....o.
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.   +X.
+.    x.
+.    o.
+.    o.
+.....o.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 6, wormholes: 2.
+..... .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.    X.
+.   +x.
+.    o.
+.    o.
+.    o.
+.....o.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 6, wormholes: 2.
+..... .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.   Xx.
+.   +o.
+.    o.
+.    o.
+.    o.
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 7, wormholes: 2.
+..... .
+.     .
+.     .
+.     .
+.     .
+.     .
+.  +  .
+.   xo.
+.   Xo.
+.    o.
+.    o.
+.    o.
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 7, wormholes: 2.
+..... .
+.     .
+.     .
+.     .
+.     .
+.     .
+.  +  .
+.   oo.
+.  Xxo.
+.    o.
+.    o.
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 7, wormholes: 2.
+..... .
+.     .
+.     .
+.     .
+.     .
+.     .
+.  +  .
+.  Xoo.
+.  xoo.
+.    o.
+.     .
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 8, wormholes: 2.
+..... .
+.     .
+.     .
+.     .
+.     .
+.     .
+.  X  .
+.  xoo.
+.  ooo.
+. +  o.
+.     .
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 8, wormholes: 2.
+..... .
+.     .
+.     .
+.     .
+.     .
+.     .
+.  o  .
+.  ooo.
+.  oox.
+. +  X.
+.     .
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 8, wormholes: 2.
+..... .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.  ooo.
+.  ooo.
+. + Xx.
+.     .
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 8, wormholes: 2.
+..... .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.   oo.
+.  ooo.
+. +Xxo.
+.     .
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 9, wormholes: 2.
+..... .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.   oo.
+.  ooo.
+. Xxoo.
+.   + .
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 9, wormholes: 2.
+..... .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.   oo.
+.   oo.
+. xooo.
+. X + .
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 9, wormholes: 2.
+..... .
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+.   oo.
+.    o.
+. oooo.
+. xX+ .
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+..... .
+.     .
+.     .
+.   + .
+.     .
+.     .
+.     .
+.   oo.
+.    o.
+. oooo.
+. oxX .
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+..... .
+.     .
+.     .
+.   + .
+.     .
+.     .
+.     .
+.    o.
+.    o.
+. oooo.
+. ooxX.
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+..... .
+.     .
+.     .
+.   + .
+.     .
+.     .
+.     .
+.     .
+.    o.
+. oooo.
+. ooox.
+.    X.
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+..... .
+.     .
+.     .
+.   + .
+.     .
+.     .
+.     .
+.     .
+.     .
+. oooo.
+. oooo.
+.    x.
+.....X.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+.....X.
+.     .
+.     .
+.   + .
+.     .
+.     .
+.     .
+.     .
+.     .
+. ooo .
+. oooo.
+.    o.
+.....x.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+.....x.
+.    X.
+.     .
+.   + .
+.     .
+.     .
+.     .
+.     .
+.     .
+. oo  .
+. oooo.
+.    o.
+.....o.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+.....o.
+.    x.
+.    X.
+.   + .
+.     .
+.     .
+.     .
+.     .
+.     .
+. o   .
+. oooo.
+.    o.
+.....o.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+.....o.
+.    o.
+.    x.
+.   +X.
+.     .
+.     .
+.     .
+.     .
+.     .
+.     .
+. oooo.
+.    o.
+.....o.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+.....o.
+.    o.
+.    o.
+.   +x.
+.    X.
+.     .
+.     .
+.     .
+.     .
+.     .
+.  ooo.
+.    o.
+.....o.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+.....o.
+.    o.
+.    o.
+.   +o.
+.    x.
+.    X.
+.     .
+.     .
+.     .
+.     .
+.   oo.
+.    o.
+.....o.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+.....o.
+.    o.
+.    o.
+.   +o.
+.    o.
+.    x.
+.    X.
+.     .
+.     .
+.     .
+.    o.
+.    o.
+.....o.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+.....o.
+.    o.
+.    o.
+.   +o.
+.    o.
+.    o.
+.    x.
+.    X.
+.     .
+.     .
+.     .
+.    o.
+.....o.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+.....o.
+.    o.
+.    o.
+.   +o.
+.    o.
+.    o.
+.    o.
+.    x.
+.    X.
+.     .
+.     .
+.     .
+.....o.
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+.....o.
+.    o.
+.    o.
+.   +o.
+.    o.
+.    o.
+.    o.
+.    o.
+.    x.
+.    X.
+.     .
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Worm length: 10, wormholes: 2.
+..... .
+.    o.
+.    o.
+.   +o.
+.    o.
+.    o.
+.    o.
+.    o.
+.    o.
+.    x.
+.    X.
+.     .
+..... .
+(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?
+Bye, see you soon.
