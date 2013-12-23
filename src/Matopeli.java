@@ -11,16 +11,16 @@ public class Matopeli {
     
     public class MatopeliException extends Exception {
         
-        // V√§litet√§√§n yl√§luokalle viesti jolla halutaan virhe tuottaa
+        // V‰litet‰‰n yl‰luokalle viesti jolla halutaan virhe tuottaa
         public MatopeliException(String message) {
             super(message);
         }
 
-        // Exception esittelee peritt√§viens√§ m√§√§ritett√§v√§ksi
+        // Exception esittelee peritt‰viens‰ m‰‰ritett‰v‰ksi
         private static final long serialVersionUID = 1L; 
     };
 
-    // Jotta saataisiin asioihin jotain j√§rke√§ tunkaistaan pelin asetukset asetusluokkaan
+    // Jotta saataisiin asioihin jotain j‰rke‰ tunkaistaan pelin asetukset asetusluokkaan
     public static class GameRules {
         public final int MAX_WORMHOLES = 4;
         public final int WORM_INITIAL_LENGTH = 5;
@@ -96,13 +96,13 @@ public class Matopeli {
         }
         
         public boolean update(Worm worm) {
-            // Joss madon p√§√§n paikalla oleva tile on sein√§√§, ..
+            // Joss madon p‰‰n paikalla oleva tile on sein‰‰, ..
             char c = matrix[worm.y()][worm.x()];
             if (c == SYMBOL_WALL) {
-                // Sein√§ muutetaan taustaksi
+                // Sein‰ muutetaan taustaksi
                 matrix[worm.y()][worm.x()] = SYMBOL_BLANK;
-                wormholes++; // madonreikien m√§√§r√§√§ kasvatetaan
-                // note-to-hawkings: miten madonreiki√§ voi olla pariton m√§√§r√§
+                wormholes++; // madonreikien m‰‰r‰‰ kasvatetaan
+                // note-to-hawkings: miten madonreiki‰ voi olla pariton m‰‰r‰
                 return true;
             }
             return false;
@@ -114,7 +114,7 @@ public class Matopeli {
             return this.matrix;
         }
     }
-    public class Worm extends Point { // Koska tyhm√§ java, ei voi peri√§ en√§√§ MatopeliGridi√§
+    public class Worm extends Point { // Koska tyhm‰ java, ei voi peri‰ en‰‰ MatopeliGridi‰
         private int[][] wormMatrix;
         private int mapwidth;
         private int mapheight;
@@ -138,7 +138,7 @@ public class Matopeli {
         }
 
         /* *
-         * Palauttaa true jos mato osuu itseens√§, muulloin false
+         * Palauttaa true jos mato osuu itseens‰, muulloin false
          * */
         public boolean move(WormAngle a) {
             
@@ -151,21 +151,21 @@ public class Matopeli {
                 case RIGHT: this.x(this.x()+1); break;
             }
             
-            // Tutkitaan uuden p√§√§n sijainti vaakasuunnassa ja tarkistetaan ollaanko kent√§n reuna ylitetty
-            // Jos ollaan, niin siirret√§√§n sijainti kent√§n vastakkaiselle reunalle
+            // Tutkitaan uuden p‰‰n sijainti vaakasuunnassa ja tarkistetaan ollaanko kent‰n reuna ylitetty
+            // Jos ollaan, niin siirret‰‰n sijainti kent‰n vastakkaiselle reunalle
             if (this.x() < 0)                    this.x(this.mapwidth-1);
             else if (this.x() >= this.mapwidth)  this.x(0);
             
-            // Tehd√§√§n sama tarkastelu pystysuunnassa
+            // Tehd‰‰n sama tarkastelu pystysuunnassa
             if (this.y() < 0)                    this.y(this.mapheight-1);
             else if (this.y() >= this.mapheight) this.y(0);
 
             if (wormMatrix[this.y()][this.x()] == 0) {
-                // Sijoitetaan uusi p√§√§(maksimiarvo) uuteen sijaintiin
+                // Sijoitetaan uusi p‰‰(maksimiarvo) uuteen sijaintiin
                 wormMatrix[this.y()][this.x()] = this.wormmax+1;
-            } else return true; // Osuttiin matoon itseens√§
+            } else return true; // Osuttiin matoon itseens‰
 
-            // P√§ivitet√§√§n koko matriisi jolloin p√§√§st√§√§n eroon madon h√§nn√§st√§
+            // P‰ivitet‰‰n koko matriisi jolloin p‰‰st‰‰n eroon madon h‰nn‰st‰
             for(int y = 0; y < mapheight; y++)
                 for(int x = 0; x < mapwidth; x++)
                     if (wormMatrix[y][x] != 0) wormMatrix[y][x]--;
@@ -199,12 +199,12 @@ public class Matopeli {
             this.wormmax++;
         }
         
-        // Metodi madon k√§√§nt√§miseksi ymp√§ri
+        // Metodi madon k‰‰nt‰miseksi ymp‰ri
         public void turnAround() {
-            // K√§yd√§√§n l√§pi jokainen gridin arvo ...
+            // K‰yd‰‰n l‰pi jokainen gridin arvo ...
             for(int y = 0; y < mapheight; y++)
                 for(int x = 0; x < mapwidth; x++)
-                    // ... ja jos siin√§ on matoa, ...
+                    // ... ja jos siin‰ on matoa, ...
                     if (wormMatrix[y][x] != 0)
                         // ... muutetaan arvo kaavan mukaisesti
                         wormMatrix[y][x] = 1+this.wormmax-wormMatrix[y][x];
@@ -217,10 +217,10 @@ public class Matopeli {
         public char[][] toCharArray() {
             char[][] matrix = new char[mapheight][mapwidth];
             
-            // L√§pik√§yd√§√§n jokainen matriisin alkio
+            // L‰pik‰yd‰‰n jokainen matriisin alkio
             for(int y = 0; y < mapheight; y++)
                 for(int x = 0; x < mapwidth; x++) {
-                    // Jos kohdassa on matoa, tarkastellaan mik√§ osa sit√§ ja m√§√§r√§t√§√§n merkki sen mukaiseksi
+                    // Jos kohdassa on matoa, tarkastellaan mik‰ osa sit‰ ja m‰‰r‰t‰‰n merkki sen mukaiseksi
                     if (wormMatrix[y][x] == 0) {
                         matrix[y][x] = SYMBOL_BLANK;
                     } else if (wormMatrix[y][x] == wormmax) {
@@ -238,7 +238,7 @@ public class Matopeli {
     /* *
      * Ruoka-luokka
      * */
-    public class Food extends Point { // Koska tyhm√§ java, ei voi peri√§ en√§√§ MatopeliGridi√§
+    public class Food extends Point { // Koska tyhm‰ java, ei voi peri‰ en‰‰ MatopeliGridi‰
 
         // Constructori ruoalle: automaatilta ruoan nouto ja sijainnin laskenta
         public Food(Map map, Worm worm) {
@@ -247,13 +247,13 @@ public class Matopeli {
                         map.toCharArray(),  // .. Kartan ..
                         worm.toCharArray()); // .. Ja madon perusteella
 
-            // K√§ytet√§√§n maanmainiota tarjoilumetodia
+            // K‰ytet‰‰n maanmainiota tarjoilumetodia
             Automaatti.tarjoile(matrix);
 
-            // L√§pik√§yd√§√§n Automaatilta saatu taulukko
+            // L‰pik‰yd‰‰n Automaatilta saatu taulukko
             for(int y = 0; y < matrix.length; y++)
                 for(int x = 0; x < matrix[0].length; x++) {
-                    // Jos kohdassa on ruokaa, merkit√§√§n sijainti
+                    // Jos kohdassa on ruokaa, merkit‰‰n sijainti
                     if (matrix[y][x] == SYMBOL_FOOD) {
                         this.x(x);
                         this.y(y);
@@ -275,7 +275,7 @@ public class Matopeli {
         }
     }
 
-    // Matopeliin liittyv√§t muuttujat
+    // Matopeliin liittyv‰t muuttujat
     private int     mapwidth;
     private int     mapheight;
     private boolean keepRunning;
@@ -288,16 +288,16 @@ public class Matopeli {
         this.rules = rules;
 
         // joss kartan ulottuvuudet ovat virheelliset
-        if (height < rules.MAP_MIN_HEIGHT) throw new MatopeliException("Kentt√§ liian matala korkeussuunnassa");
-        if (width  < rules.MAP_MIN_WIDTH)  throw new MatopeliException("Kentt√§ liian kapea leveyssuunnassa");
+        if (height < rules.MAP_MIN_HEIGHT) throw new MatopeliException("Kentt‰ liian matala korkeussuunnassa");
+        if (width  < rules.MAP_MIN_WIDTH)  throw new MatopeliException("Kentt‰ liian kapea leveyssuunnassa");
 
-        // K√§ynnistet√§√§n ruoka-automaatti
+        // K‰ynnistet‰‰n ruoka-automaatti
         Automaatti.kaynnista(randseed);
 
         // Pelin perusominaisuuksien alustaminen
         this.mapwidth  = width; // Kartan ulottuvuudet
         this.mapheight = height; 
-        this.keepRunning = true; // Pelin p√§ivitystoive
+        this.keepRunning = true; // Pelin p‰ivitystoive
         map  = new Map(width, height);  // Kartta
         worm = new Worm(rules.WORM_INITIAL_LENGTH, width, height); // Mato
         food = new Food(map, worm); //Ruoka
@@ -305,12 +305,12 @@ public class Matopeli {
     
     public void run() {
         boolean validCommand;
-        // K√§ytt√§j√§n sy√∂tt√§m√§ komento
+        // K‰ytt‰j‰n syˆtt‰m‰ komento
         char command;
-        // Suunta, johon madon toivotaan k√§√§ntyv√§n
+        // Suunta, johon madon toivotaan k‰‰ntyv‰n
         WormAngle angle;
 
-        // Aloitetaan p√§√§silmukka, jota jatketaan niin kauan kun keepRunning on true
+        // Aloitetaan p‰‰silmukka, jota jatketaan niin kauan kun keepRunning on true
         while(keepRunning) {
             angle = null;
                     
@@ -321,61 +321,61 @@ public class Matopeli {
             do {
                 System.out.println("(l)eft, (r)ight, (u)p, (d)own, (s)wap, (q)uit?");
 
-                // Pyydet√§√§n k√§ytt√§j√§lt√§ merkki In-kirjaston maanmainiolla metodilla 
+                // Pyydet‰‰n k‰ytt‰j‰lt‰ merkki In-kirjaston maanmainiolla metodilla 
                 command = In.readChar();
                 validCommand = true;
                 
-                // L√§pik√§yd√§√§n komentovaihtoehdot
+                // L‰pik‰yd‰‰n komentovaihtoehdot
                 switch(command) {
-                    case 'u': angle = WormAngle.UP;    break; // komento liikkua yl√∂sp√§in
-                    case 'd': angle = WormAngle.DOWN;  break; // komento liikkua alasp√§in
+                    case 'u': angle = WormAngle.UP;    break; // komento liikkua ylˆsp‰in
+                    case 'd': angle = WormAngle.DOWN;  break; // komento liikkua alasp‰in
                     case 'l': angle = WormAngle.LEFT;  break; // komento liikkua vasemmalle
                     case 'r': angle = WormAngle.RIGHT; break; // komento liikkua oikealle
-                    case 's': worm.turnAround();       break; // komento k√§√§nty√§ ymp√§ri
+                    case 's': worm.turnAround();       break; // komento k‰‰nty‰ ymp‰ri
                     case 'q': keepRunning = false;     break; // komento lopettaa suoritus
-                    default: validCommand = false;            // virheellinen komento! (jatketaan kysely√§)
+                    default: validCommand = false;            // virheellinen komento! (jatketaan kysely‰)
                 }
-            } while(!validCommand); // l√§pik√§yd√§√§n uudestaan jos komento oli virheellinen
+            } while(!validCommand); // l‰pik‰yd‰‰n uudestaan jos komento oli virheellinen
             
-            // Jos halutaan liikkua (ollaan annettu liikkumisk√§sky johonkin suuntaan 
+            // Jos halutaan liikkua (ollaan annettu liikkumisk‰sky johonkin suuntaan 
             if (angle != null)
-                // Jos Worm::move palauttaa true, niin mato on osunut itseens√§
+                // Jos Worm::move palauttaa true, niin mato on osunut itseens‰
                 if (worm.move(angle)) keepRunning = false;
             
-            // Onko mato sy√∂m√§ss√§ ruoan
+            // Onko mato syˆm‰ss‰ ruoan
             if (worm.equal(food)) {
                 worm.addPiece();
                 food = new Food(map, worm);
             }
             
-            // p√§ivitet√§√§n kartta madon perusteella 
+            // p‰ivitet‰‰n kartta madon perusteella 
             map.update(worm);
             
-            // Tarkastellaan karttaan tehtyj√§ reiki√§ ja jos liikaa, niin lopetetaan
+            // Tarkastellaan karttaan tehtyj‰ reiki‰ ja jos liikaa, niin lopetetaan
             if (map.wormholes() > rules.MAX_WORMHOLES) keepRunning = false;
         }
     }
     
     public void printGame() {
-        // Yhdistet√§√§n kartta ja mato matriisiksi
+        // Yhdistet‰‰n kartta ja mato matriisiksi
         char[][] gamemap = mergeArrays(map.toCharArray(), worm.toCharArray()); 
-        // .. Sek√§ sen tulos ja ruoka
+        // .. Sek‰ sen tulos ja ruoka
                  gamemap = mergeArrays(gamemap, food.toCharArray());
 
         /* *
-         * Note-to-tarkastaja: Tiedostan ratkaisun olevan eritt√§in raskas,
-         * mutta vetoan siihen ett√§ tarkastelun kohteena on vuoropohjainen
-         * yksin pelattava matopeli, jossa ei mit√§ todenn√§k√∂immin tarvitse
-         * olla √§√§rimm√§ist√§ optimointia ja tehokkuuden hiomista. Jos n√§in
-         * olisi, olisi teht√§v√§nantokin toivottavasti toisenlainen ja min√§
-         * olisin silloin kyll√§ tehnyt aika erilailla _MONTA_ t√§ss√§ olevaa
+         * Note-to-tarkastaja: Tiedostan ratkaisun olevan eritt‰in raskas,
+         * mutta vetoan siihen ett‰ tarkastelun kohteena on vuoropohjainen
+         * yksin pelattava matopeli, jossa ei mit‰ todenn‰kˆimmin tarvitse
+         * olla ‰‰rimm‰ist‰ optimointia ja tehokkuuden hiomista. Jos n‰in
+         * olisi, olisi teht‰v‰nantokin toivottavasti toisenlainen ja min‰
+         * olisin silloin kyll‰ tehnyt aika erilailla _MONTA_ t‰ss‰ olevaa
          * toteutusta. Rakkautta <3
          * */
                  
         // Tulostetaan kartta kustannustehokkaasti ja helposti foreach-silmukalla
         for(char[] row : gamemap) {
             for(char col : row) System.out.print(col+" ");
-            System.out.print("\n"); // Ettei ihan hy√∂dytt√∂m√§ksi riviksi mene
+            System.out.print("\n"); // Ettei ihan hyˆdyttˆm‰ksi riviksi mene
         }
     }
 
@@ -385,10 +385,10 @@ public class Matopeli {
     }
     
     /* *
-     * Staattiset metodit joita voi vapaasti k√§ytt√§√§
+     * Staattiset metodit joita voi vapaasti k‰ytt‰‰
      * */
 
-    // Olen tyk√§nnyt k√§ytt√§√§ String... -muotoa String[]:n sijaan koska imho loogisempi
+    // Olen tyk‰nnyt k‰ytt‰‰ String... -muotoa String[]:n sijaan koska imho loogisempi
     public static void main(String... args) {
         
 //        String[] args = {"1", "5", "10"};
@@ -399,14 +399,14 @@ public class Matopeli {
         System.out.println("~~~~~~~~~~~");
 
         /* *
-         * Alustetaan peli ja k√§sitell√§√§n poikkeukset
+         * Alustetaan peli ja k‰sitell‰‰n poikkeukset
          * */
         try {
         
-            // Pelin s√§√§nn√∂t
+            // Pelin s‰‰nnˆt
             MatopeliRules rules = new MatopeliRules();
 
-            /* Muut juoksevat, komentorivilt√§ luettavat tiedot.
+            /* Muut juoksevat, komentorivilt‰ luettavat tiedot.
              * Jos tiedoissa on vikaa, poikkeukset hoitavat tilanteen ja peli keskeytyy
              */ 
             int randSeed = Integer.parseInt(args[0]),  // Satunnaislukusiemen
@@ -417,30 +417,30 @@ public class Matopeli {
             Matopeli game = new Matopeli( rules, randSeed, mapWidth, mapHeight ); 
             
             /* *
-             * Ajetaan peli ja nautitaan sek√§ k√§sitell√§√§n poikkeukset
-             * Oma try-k√§sittely ettei mene ulommille catcheille
+             * Ajetaan peli ja nautitaan sek‰ k‰sitell‰‰n poikkeukset
+             * Oma try-k‰sittely ettei mene ulommille catcheille
              * */
             try {
                 game.run();
             } catch(Exception e) {
                 /* *
-                 * NullPointerException : Miten t√§h√§n p√§√§stiin? Peli√§ ei alustettu. Ei n√§in voi oikeasti k√§yd√§
+                 * NullPointerException : Miten t‰h‰n p‰‰stiin? Peli‰ ei alustettu. Ei n‰in voi oikeasti k‰yd‰
                  * */
                 System.err.println("VIRHEVIRHEVIRHEVIRHE!!!");
                 e.printStackTrace();
             }
             
-        } // K√§sitell√§√§n virhetilanteet
-          catch(NumberFormatException e) { // Argumentit v√§√§r√§n tyyppisi√§
-            // Tulostetaan k√§ytt√∂ohjeet
+        } // K‰sitell‰‰n virhetilanteet
+          catch(NumberFormatException e) { // Argumentit v‰‰r‰n tyyppisi‰
+            // Tulostetaan k‰yttˆohjeet
                 System.out.println("Invalid command-line argument!");
 
         } catch(ArrayIndexOutOfBoundsException e) { // Taulukko liian pieni
-            // Tulostetaan k√§ytt√∂ohjeet
+            // Tulostetaan k‰yttˆohjeet
             System.out.println("Invalid command-line argument!");
 
         } catch(MatopeliException e) { // Tiedostettu virhetilanne
-            // Tulostetaan k√§ytt√∂ohjeet
+            // Tulostetaan k‰yttˆohjeet
             System.out.println("Invalid command-line argument!");
 
         } // Tilanteessa jossa tulee tunnistamaton poikkeus, tulostetaan pino
@@ -456,10 +456,10 @@ public class Matopeli {
     }
 
     /* *
-     * Staattinen metodi joka yhdist√§√§ kaksi taulua ja palauttaa tuloksen
+     * Staattinen metodi joka yhdist‰‰ kaksi taulua ja palauttaa tuloksen
      * */
     public static char[][] mergeArrays(char[][] arr1, char[][]arr2) {
-        // Yll√§pidet√§√§n oletusta ett√§ taulukot ovat gridej√§
+        // Yll‰pidet‰‰n oletusta ett‰ taulukot ovat gridej‰
         // a.k.a jokainen rivi on saman mittainen
         if (arr1.length != arr2.length || arr1[0].length != arr2[0].length) return null;
 
