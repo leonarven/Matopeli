@@ -12,7 +12,7 @@ public class Matopeli {
     public static final char SYMBOL_WALL      = '.';
     
     // Debug-muuttuja testauksen tulosteiden saamiseksi (poista lopullisesta)
-    public static final DEBUG = false;
+    public static final boolean DEBUG = false;
     
     public class MatopeliException extends Exception {
         
@@ -212,29 +212,29 @@ public class Matopeli {
         
         // Metodi madon k‰‰nt‰miseksi ymp‰ri
         public void turnAround() {
-        	// K‰yd‰‰n l‰pi jokainen gridin arvo ...
+            // K‰yd‰‰n l‰pi jokainen gridin arvo ...
             for(int py = 0; py < mapheight; py++)
                 for(int px = 0; px < mapwidth; px++) {
                     // ... ja jos siin‰ on matoa, ...
                     if (wormMatrix[py][px] >= 0) 
                         // ... muutetaan arvo kaavan mukaisesti
                         wormMatrix[py][px] = 1+this.wormmax-wormMatrix[py][px];
-            		if (wormMatrix[py][px] == this.wormmax) this.setPoint(px,  py);
+                    if (wormMatrix[py][px] == this.wormmax) this.setPoint(px,  py);
                 }
 
             switch(this.angle) {
-	            case UP:
-	                this.angle = WormAngle.DOWN;
-	                break;
-	            case DOWN: 
-	                this.angle = WormAngle.UP;
-	                break;
-	            case LEFT:
-	                this.angle = WormAngle.RIGHT;
-	                break;
-	            case RIGHT:
-	                this.angle = WormAngle.LEFT;
-	                break;
+                case UP:
+                    this.angle = WormAngle.DOWN;
+                    break;
+                case DOWN: 
+                    this.angle = WormAngle.UP;
+                    break;
+                case LEFT:
+                    this.angle = WormAngle.RIGHT;
+                    break;
+                case RIGHT:
+                    this.angle = WormAngle.LEFT;
+                    break;
             }
         }
 
@@ -263,7 +263,7 @@ public class Matopeli {
         }
         
         public WormAngle angle() {
-        	return this.angle;
+            return this.angle;
         }
     }
     
@@ -508,8 +508,8 @@ public class Matopeli {
      * Metodi joka yhdist‰‰ kolme taulua k‰ytt‰en kahden taulun yhdist‰mist‰
      * */
     public static char[][] mergeArrays(char[][] arr1, char[][]arr2, char[][]arr3) {
-    	char[][] arr12 = mergeArrays(arr1, arr2);
-    	return mergeArrays(arr12, arr3);
+        char[][] arr12 = mergeArrays(arr1, arr2);
+        return mergeArrays(arr12, arr3);
     }
 
     public static void var_dump(char[][] taulu) {
