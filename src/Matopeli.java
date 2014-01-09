@@ -1,3 +1,5 @@
+//FIXME: Syöminen ennen madon "vähentämistä"
+
 public class Matopeli {
  
 
@@ -8,6 +10,9 @@ public class Matopeli {
     public static final char SYMBOL_WORM      = 'o';
     public static final char SYMBOL_BLANK     = ' ';
     public static final char SYMBOL_WALL      = '.';
+    
+    // Debug-muuttuja testauksen tulosteiden saamiseksi (poista lopullisesta)
+    public static final DEBUG = false;
     
     public class MatopeliException extends Exception {
         
@@ -53,8 +58,8 @@ public class Matopeli {
     }
     
     public class Point {
-        private int x;
-        private int y;
+        private int x = 0;
+        private int y = 0;
 
         public Point(int x, int y) {
             this.x = x;
@@ -69,8 +74,13 @@ public class Matopeli {
         protected void x(int x) { this.x = x; }
         protected void y(int y) { this.y = y; }
 
-        public boolean equal(Point point) {
+        public boolean equal( Point point ) {
             return this.x() == point.x() && this.y() == point.y();
+        }
+
+        public void setPoint( int newX, int newY ) {
+            this.x(newX);
+            this.y(newY);
         }
         
         // Debug - metodi
@@ -119,7 +129,7 @@ public class Matopeli {
         private int mapwidth;
         private int mapheight;
         private int wormmax;
-        public WormAngle angle;
+        private WormAngle angle;
         
         public Worm(int length, int mapwidth, int mapheight) {
             super(length, 1);
@@ -132,8 +142,9 @@ public class Matopeli {
 
             for(int y = 0; y < mapheight; y++)
                 for(int x = 0; x < mapwidth; x++)
-                    wormMatrix[y][x] = 0;
+                    wormMatrix[y][x] = -1;
             
+            // Pelin sääntöihin perustuva asetelma
             for(int i = 1; i <= this.wormmax; i++) wormMatrix[1][i] = i;
         }
 
@@ -160,7 +171,7 @@ public class Matopeli {
             if (this.y() < 0)                    this.y(this.mapheight-1);
             else if (this.y() >= this.mapheight) this.y(0);
 
-            if (wormMatrix[this.y()][this.x()] == 0) {
+            if (wormMatrix[this.y()][this.x()] <= 0) {
                 // Sijoitetaan uusi pää(maksimiarvo) uuteen sijaintiin
                 wormMatrix[this.y()][this.x()] = this.wormmax+1;
             } else return true; // Osuttiin matoon itseensä
@@ -168,7 +179,7 @@ public class Matopeli {
             // Päivitetään koko matriisi jolloin päästään eroon madon hännästä
             for(int y = 0; y < mapheight; y++)
                 for(int x = 0; x < mapwidth; x++)
-                    if (wormMatrix[y][x] != 0) wormMatrix[y][x]--;
+                    if (wormMatrix[y][x] >= 0) wormMatrix[y][x]--;
             
             return false;
         }
@@ -195,19 +206,36 @@ public class Matopeli {
         public void addPiece() {
             for(int y = 0; y < mapheight; y++)
                 for(int x = 0; x < mapwidth; x++)
-                    if (wormMatrix[y][x] != 0) wormMatrix[y][x]++;
+                    if (wormMatrix[y][x] >= 0) wormMatrix[y][x]++;
             this.wormmax++;
         }
         
         // Metodi madon kääntämiseksi ympäri
         public void turnAround() {
-            // Käydään läpi jokainen gridin arvo ...
-            for(int y = 0; y < mapheight; y++)
-                for(int x = 0; x < mapwidth; x++)
+        	// Käydään läpi jokainen gridin arvo ...
+            for(int py = 0; py < mapheight; py++)
+                for(int px = 0; px < mapwidth; px++) {
                     // ... ja jos siinä on matoa, ...
-                    if (wormMatrix[y][x] != 0)
+                    if (wormMatrix[py][px] >= 0) 
                         // ... muutetaan arvo kaavan mukaisesti
-                        wormMatrix[y][x] = 1+this.wormmax-wormMatrix[y][x];
+                        wormMatrix[py][px] = 1+this.wormmax-wormMatrix[py][px];
+            		if (wormMatrix[py][px] == this.wormmax) this.setPoint(px,  py);
+                }
+
+            switch(this.angle) {
+	            case UP:
+	                this.angle = WormAngle.DOWN;
+	                break;
+	            case DOWN: 
+	                this.angle = WormAngle.UP;
+	                break;
+	            case LEFT:
+	                this.angle = WormAngle.RIGHT;
+	                break;
+	            case RIGHT:
+	                this.angle = WormAngle.LEFT;
+	                break;
+            }
         }
 
         // Kauniimpi tapa arvon noutamiseksi
@@ -221,7 +249,7 @@ public class Matopeli {
             for(int y = 0; y < mapheight; y++)
                 for(int x = 0; x < mapwidth; x++) {
                     // Jos kohdassa on matoa, tarkastellaan mikä osa sitä ja määrätään merkki sen mukaiseksi
-                    if (wormMatrix[y][x] == 0) {
+                    if (wormMatrix[y][x] <= 0) {
                         matrix[y][x] = SYMBOL_BLANK;
                     } else if (wormMatrix[y][x] == wormmax) {
                         matrix[y][x] = SYMBOL_WORM_HEAD;
@@ -233,6 +261,10 @@ public class Matopeli {
                 }
             return matrix;
         }
+        
+        public WormAngle angle() {
+        	return this.angle;
+        }
     }
     
     /* *
@@ -241,20 +273,17 @@ public class Matopeli {
     public class Food extends Point { // Koska tyhmä java, ei voi periä enää MatopeliGridiä
 
         // Constructori ruoalle: automaatilta ruoan nouto ja sijainnin laskenta
-        public Food(Map map, Worm worm) {
+        public Food(char[][] hitmatrix) {
             super(0, 0);
-            char[][] matrix = mergeArrays(  // Alustetaan ruoka
-                        map.toCharArray(),  // .. Kartan ..
-                        worm.toCharArray()); // .. Ja madon perusteella
 
             // Käytetään maanmainiota tarjoilumetodia
-            Automaatti.tarjoile(matrix);
+            Automaatti.tarjoile(hitmatrix);
 
             // Läpikäydään Automaatilta saatu taulukko
-            for(int y = 0; y < matrix.length; y++)
-                for(int x = 0; x < matrix[0].length; x++) {
+            for(int y = 0; y < hitmatrix.length; y++)
+                for(int x = 0; x < hitmatrix[0].length; x++) {
                     // Jos kohdassa on ruokaa, merkitään sijainti
-                    if (matrix[y][x] == SYMBOL_FOOD) {
+                    if (hitmatrix[y][x] == SYMBOL_FOOD) {
                         this.x(x);
                         this.y(y);
                     }
@@ -300,7 +329,7 @@ public class Matopeli {
         this.keepRunning = true; // Pelin päivitystoive
         map  = new Map(width, height);  // Kartta
         worm = new Worm(rules.WORM_INITIAL_LENGTH, width, height); // Mato
-        food = new Food(map, worm); //Ruoka
+        food = new Food(mergeArrays(map.toCharArray(), worm.toCharArray())); //Ruoka
     }
     
     public void run() {
@@ -319,7 +348,7 @@ public class Matopeli {
             printGame();
 
             do {
-                System.out.println("(l)eft, (r)ight, (u)p, (d)own, (s)wap, (q)uit?");
+                System.out.println("(l)eft, (r)ight, (u)p, (d)own, (s)wap or (q)uit?");
 
                 // Pyydetään käyttäjältä merkki In-kirjaston maanmainiolla metodilla 
                 command = In.readChar();
@@ -336,18 +365,18 @@ public class Matopeli {
                     default: validCommand = false;            // virheellinen komento! (jatketaan kyselyä)
                 }
             } while(!validCommand); // läpikäydään uudestaan jos komento oli virheellinen
-            
+
             // Jos halutaan liikkua (ollaan annettu liikkumiskäsky johonkin suuntaan 
             if (angle != null)
                 // Jos Worm::move palauttaa true, niin mato on osunut itseensä
                 if (worm.move(angle)) keepRunning = false;
-            
+
             // Onko mato syömässä ruoan
             if (worm.equal(food)) {
                 worm.addPiece();
-                food = new Food(map, worm);
+                food = new Food(mergeArrays(worm.toCharArray(), map.toCharArray()));
             }
-            
+
             // päivitetään kartta madon perusteella 
             map.update(worm);
             
@@ -358,9 +387,9 @@ public class Matopeli {
     
     public void printGame() {
         // Yhdistetään kartta ja mato matriisiksi
-        char[][] gamemap = mergeArrays(map.toCharArray(), worm.toCharArray()); 
+        char[][] gamemap = mergeArrays(map.toCharArray(), food.toCharArray()); 
         // .. Sekä sen tulos ja ruoka
-                 gamemap = mergeArrays(gamemap, food.toCharArray());
+                 gamemap = mergeArrays(gamemap, worm.toCharArray());
 
         /* *
          * Note-to-tarkastaja: Tiedostan ratkaisun olevan erittäin raskas,
@@ -374,7 +403,7 @@ public class Matopeli {
                  
         // Tulostetaan kartta kustannustehokkaasti ja helposti foreach-silmukalla
         for(char[] row : gamemap) {
-            for(char col : row) System.out.print(col+" ");
+            for(char col : row) System.out.print(col);
             System.out.print("\n"); // Ettei ihan hyödyttömäksi riviksi mene
         }
     }
@@ -474,6 +503,13 @@ public class Matopeli {
             }
 
         return t;
+    }
+    /* *
+     * Metodi joka yhdistää kolme taulua käyttäen kahden taulun yhdistämistä
+     * */
+    public static char[][] mergeArrays(char[][] arr1, char[][]arr2, char[][]arr3) {
+    	char[][] arr12 = mergeArrays(arr1, arr2);
+    	return mergeArrays(arr12, arr3);
     }
 
     public static void var_dump(char[][] taulu) {
