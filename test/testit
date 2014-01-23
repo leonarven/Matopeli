@@ -1,0 +1,15 @@
+Lista ei-toimivista(-) ja toimivista(+) testeistä
+
+23.1. klo 9:48
++ hetipois
++ kierto1
++ kierto2
++ liiku
+ - silmukka1
+ - silmukka2
++ syo
+ - tehtanto
+ - tormaa2
+ - vaihda
++ virhe1
+

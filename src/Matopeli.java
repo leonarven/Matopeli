@@ -50,6 +50,7 @@ public class Matopeli {
     public enum GameCommand {
         MOVE,
         SWAP,
+        DEBUG,
         QUIT
     };
     
@@ -274,7 +275,7 @@ public class Matopeli {
 
         // Constructori ruoalle: automaatilta ruoan nouto ja sijainnin laskenta
         public Food(char[][] hitmatrix) {
-            super(0, 0);
+            super(-1, -1);
 
             // K‰ytet‰‰n maanmainiota tarjoilumetodia
             Automaatti.tarjoile(hitmatrix);

@@ -7,4 +7,4 @@ if [ $# != 4 ] ; then
 	exit;
 fi
 
-java Matopeli $2 $3 $4 < ../test/syote_$1_$2_$3_$4.txt | diff -y ../test/tulos_$1_$2_$3_$4.txt -
+java Matopeli $2 $3 $4 < ../test/syote_$1_$2_$3_$4.txt | diff -u ../test/tulos_$1_$2_$3_$4.txt -
