@@ -35,6 +35,7 @@ public class Matopeli {
     }
     
     public enum WormAngle {
+    	UNDEFINED('x'),
         UP   ('u'),
         DOWN ('d'),
         LEFT ('l'),
@@ -75,8 +76,12 @@ public class Matopeli {
         protected void x(int x) { this.x = x; }
         protected void y(int y) { this.y = y; }
 
+        public boolean equal( int x, int y ) {
+            return this.x() == x && this.y() == y;
+        }
+
         public boolean equal( Point point ) {
-            return this.x() == point.x() && this.y() == point.y();
+            return equal(point.x(), point.y());
         }
 
         public void setPoint( int newX, int newY ) {
@@ -161,6 +166,7 @@ public class Matopeli {
                 case DOWN:  this.y(this.y()+1); break;
                 case LEFT:  this.x(this.x()-1); break;
                 case RIGHT: this.x(this.x()+1); break;
+                default:
             }
             
             // Tutkitaan uuden p‰‰n sijainti vaakasuunnassa ja tarkistetaan ollaanko kent‰n reuna ylitetty
@@ -210,38 +216,31 @@ public class Matopeli {
                     if (wormMatrix[y][x] >= 0) wormMatrix[y][x]++;
             this.wormmax++;
         }
-        
+
         // Metodi madon k‰‰nt‰miseksi ymp‰ri
         public void turnAround() {
             // K‰yd‰‰n l‰pi jokainen gridin arvo ...
-            for(int py = 0; py < mapheight; py++)
+            for(int py = 0; py < mapheight; py++) {
                 for(int px = 0; px < mapwidth; px++) {
                     // ... ja jos siin‰ on matoa, ...
-                    if (wormMatrix[py][px] >= 0) 
+                    if (wormMatrix[py][px] > 0) 
                         // ... muutetaan arvo kaavan mukaisesti
                         wormMatrix[py][px] = 1+this.wormmax-wormMatrix[py][px];
                     if (wormMatrix[py][px] == this.wormmax) this.setPoint(px,  py);
                 }
-
-            switch(this.angle) {
-                case UP:
-                    this.angle = WormAngle.DOWN;
-                    break;
-                case DOWN: 
-                    this.angle = WormAngle.UP;
-                    break;
-                case LEFT:
-                    this.angle = WormAngle.RIGHT;
-                    break;
-                case RIGHT:
-                    this.angle = WormAngle.LEFT;
-                    break;
-            }
+        	}
+            // K‰‰nnet‰‰n madon oikea suunta
+/*            if      (wormMatrix[this.x()-1][this.y()] == this.wormmax-1) this.angle = WormAngle.RIGHT;
+            else if (wormMatrix[this.x()+1][this.y()] == this.wormmax-1) this.angle = WormAngle.LEFT;
+            else if (wormMatrix[this.x()][this.y()-1] == this.wormmax-1) this.angle = WormAngle.DOWN;
+            else if (wormMatrix[this.x()][this.y()+1] == this.wormmax-1) this.angle = WormAngle.UP;
+ */           
+            this.angle = WormAngle.UNDEFINED;
         }
 
         // Kauniimpi tapa arvon noutamiseksi
         public int length() { return this.wormmax; }
-        
+
         // Muutetaan mato-matriisi merkkitaulukoksi
         public char[][] toCharArray() {
             char[][] matrix = new char[mapheight][mapwidth];
@@ -259,6 +258,12 @@ public class Matopeli {
                     } else {
                         matrix[y][x] = SYMBOL_WORM;
                     }
+                    
+                    if (Matopeli.DEBUG) {
+                    	if (wormMatrix[y][x] <= 0) 
+                    		 matrix[y][x] = SYMBOL_BLANK;
+                    	else matrix[y][x] = (""+wormMatrix[y][x]).charAt(0);
+                    } 
                 }
             return matrix;
         }
@@ -298,7 +303,7 @@ public class Matopeli {
             for(int y = 0; y < mapheight; y++)
                 for(int x = 0; x < mapwidth; x++) {
                     matrix[y][x] = SYMBOL_BLANK;
-                    if (this.equal(new Point(x, y))) 
+                    if (this.equal(x, y)) 
                         matrix[y][x] = SYMBOL_FOOD;
                 }
             return matrix;
