@@ -172,16 +172,16 @@ public class Matopeli {
             if (this.y() < 0)                    this.y(this.mapheight-1);
             else if (this.y() >= this.mapheight) this.y(0);
 
-            if (wormMatrix[this.y()][this.x()] <= 0) {
-                // Sijoitetaan uusi pää(maksimiarvo) uuteen sijaintiin
-                wormMatrix[this.y()][this.x()] = this.wormmax+1;
-            } else return true; // Osuttiin matoon itseensä
-
             // Päivitetään koko matriisi jolloin päästään eroon madon hännästä
             for(int y = 0; y < mapheight; y++)
                 for(int x = 0; x < mapwidth; x++)
                     if (wormMatrix[y][x] >= 0) wormMatrix[y][x]--;
-            
+
+            if (wormMatrix[this.y()][this.x()] <= 0) {
+                // Sijoitetaan uusi pää(maksimiarvo) uuteen sijaintiin
+                wormMatrix[this.y()][this.x()] = this.wormmax;
+            } else return true; // Osuttiin matoon itseensä
+
             return false;
         }
         
