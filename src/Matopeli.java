@@ -27,11 +27,11 @@ public class Matopeli {
 
     // Jotta saataisiin asioihin jotain järkeä tunkaistaan pelin asetukset asetusluokkaan
     public static class GameRules {
-        public final int MAX_WORMHOLES = 4;
-        public final int WORM_INITIAL_LENGTH = 5;
+        public int MAX_WORMHOLES = 3;
+        public int WORM_INITIAL_LENGTH = 5;
         
-        public final int MAP_MIN_HEIGHT = 3;
-        public final int MAP_MIN_WIDTH  = 7;
+        public int MAP_MIN_HEIGHT = 3;
+        public int MAP_MIN_WIDTH  = 7;
     }
     
     public enum WormAngle {
@@ -413,11 +413,6 @@ public class Matopeli {
             System.out.print("\n"); // Ettei ihan hyödyttömäksi riviksi mene
         }
     }
-
-    // TODO - korjaa toimivaksi
-    public static class MatopeliRules extends GameRules {
-        public final int MAX_WORMHOLES = 3;
-    }
     
     /* *
      * Staattiset metodit joita voi vapaasti käyttää
@@ -439,7 +434,7 @@ public class Matopeli {
         try {
         
             // Pelin säännöt
-            MatopeliRules rules = new MatopeliRules();
+            GameRules rules = new GameRules();
 
             /* Muut juoksevat, komentoriviltä luettavat tiedot.
              * Jos tiedoissa on vikaa, poikkeukset hoitavat tilanteen ja peli keskeytyy
