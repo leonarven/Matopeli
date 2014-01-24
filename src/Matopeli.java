@@ -27,7 +27,7 @@ public class Matopeli {
 
     // Jotta saataisiin asioihin jotain järkeä tunkaistaan pelin asetukset asetusluokkaan
     public static class GameRules {
-        public int MAX_WORMHOLES = 3;
+        public int MAX_WORMHOLES = 4;
         public int WORM_INITIAL_LENGTH = 5;
         
         public int MAP_MIN_HEIGHT = 3;
@@ -387,7 +387,7 @@ public class Matopeli {
             map.update(worm);
             
             // Tarkastellaan karttaan tehtyjä reikiä ja jos liikaa, niin lopetetaan
-            if (map.wormholes() > rules.MAX_WORMHOLES) keepRunning = false;
+            if (map.wormholes() >= rules.MAX_WORMHOLES) keepRunning = false;
         }
     }
     
@@ -413,6 +413,10 @@ public class Matopeli {
             System.out.print("\n"); // Ettei ihan hyödyttömäksi riviksi mene
         }
     }
+
+    public static class MatopeliRules extends GameRules {
+        public int MAX_WORMHOLES = 4;
+    }
     
     /* *
      * Staattiset metodit joita voi vapaasti käyttää
@@ -434,7 +438,7 @@ public class Matopeli {
         try {
         
             // Pelin säännöt
-            GameRules rules = new GameRules();
+            MatopeliRules rules = new MatopeliRules();
 
             /* Muut juoksevat, komentoriviltä luettavat tiedot.
              * Jos tiedoissa on vikaa, poikkeukset hoitavat tilanteen ja peli keskeytyy
