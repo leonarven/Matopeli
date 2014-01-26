@@ -35,7 +35,7 @@ public class Matopeli {
     }
     
     public enum WormAngle {
-    	UNDEFINED('x'),
+        UNDEFINED('x'),
         UP   ('u'),
         DOWN ('d'),
         LEFT ('l'),
@@ -228,7 +228,7 @@ public class Matopeli {
                         wormMatrix[py][px] = 1+this.wormmax-wormMatrix[py][px];
                     if (wormMatrix[py][px] == this.wormmax) this.setPoint(px,  py);
                 }
-        	}
+            }
             // K‰‰nnet‰‰n madon oikea suunta
 /*            if      (wormMatrix[this.x()-1][this.y()] == this.wormmax-1) this.angle = WormAngle.RIGHT;
             else if (wormMatrix[this.x()+1][this.y()] == this.wormmax-1) this.angle = WormAngle.LEFT;
@@ -260,9 +260,9 @@ public class Matopeli {
                     }
                     
                     if (Matopeli.DEBUG) {
-                    	if (wormMatrix[y][x] <= 0) 
-                    		 matrix[y][x] = SYMBOL_BLANK;
-                    	else matrix[y][x] = (""+wormMatrix[y][x]).charAt(0);
+                        if (wormMatrix[y][x] <= 0) 
+                             matrix[y][x] = SYMBOL_BLANK;
+                        else matrix[y][x] = (""+wormMatrix[y][x]).charAt(0);
                     } 
                 }
             return matrix;
@@ -456,9 +456,10 @@ public class Matopeli {
              * */
             try {
                 game.run();
-            } catch(Exception e) {
+            } catch(NullPointerException e) {
                 /* *
-                 * NullPointerException : Miten t‰h‰n p‰‰stiin? Peli‰ ei alustettu. Ei n‰in voi oikeasti k‰yd‰
+                 * NullPointerException : Miten t‰h‰n p‰‰stiin? Peli‰ ei alustettu. Ei n‰in voi oikeasti k‰yd‰.
+                 * Ei ole hyv‰ t‰m‰. Tulostetaan informatiivinen virheviesti
                  * */
                 System.err.println("VIRHEVIRHEVIRHEVIRHE!!!");
                 e.printStackTrace();
