@@ -1,7 +1,19 @@
-//FIXME: Syöminen ennen madon "vähentämistä"
+/**
+ * 
+ * @Author: Miro 'leonarven' Nieminen
+ * @see {@link http://www.uta.fi/sis/tie/laki/opetus/harjoitustyot/harjoitustyo2.html}
+ * @category Lausekielinen Ohjelmointi
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 
 public class Matopeli {
- 
+
+    public static final int EXIT_SUCCESS = 0;
+    public static final int EXIT_FAILURE = 1;
 
     // Alustetaan symbolien vakiot
     public static final char SYMBOL_FOOD      = '+';
@@ -424,8 +436,6 @@ public class Matopeli {
 
     // Olen tykännyt käyttää String... -muotoa String[]:n sijaan koska imho loogisempi
     public static void main(String... args) {
-        
-//        String[] args = {"1", "5", "10"};
 
         // Tulosteen header
         System.out.println("~~~~~~~~~~~");
@@ -461,20 +471,12 @@ public class Matopeli {
                  * NullPointerException : Miten tähän päästiin? Peliä ei alustettu. Ei näin voi oikeasti käydä.
                  * Ei ole hyvä tämä. Tulostetaan informatiivinen virheviesti
                  * */
-                System.err.println("VIRHEVIRHEVIRHEVIRHE!!!");
-                e.printStackTrace();
+                System.err.println("Fatal exception(NullPointerException) while game(Matopeli).run()");
+                throw e;
             }
             
         } // Käsitellään virhetilanteet
-          catch(NumberFormatException e) { // Argumentit väärän tyyppisiä
-            // Tulostetaan käyttöohjeet
-                System.out.println("Invalid command-line argument!");
-
-        } catch(ArrayIndexOutOfBoundsException e) { // Taulukko liian pieni
-            // Tulostetaan käyttöohjeet
-            System.out.println("Invalid command-line argument!");
-
-        } catch(MatopeliException e) { // Tiedostettu virhetilanne
+          catch(ArrayIndexOutOfBoundsException | NumberFormatException | MatopeliException e) { // Taulukko liian pieni
             // Tulostetaan käyttöohjeet
             System.out.println("Invalid command-line argument!");
 
