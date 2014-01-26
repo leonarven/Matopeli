@@ -466,7 +466,7 @@ public class Matopeli {
              * Jos tiedoissa on vikaa, poikkeukset hoitavat tilanteen ja peli keskeytyy
              */ 
             
-            if (args.length != 3) throw new MatopeliException("Invalid count of command-line parameters");
+            if (args.length != 3) throw new CommandlineArgsException("Invalid count of command-line parameters");
 
             int randSeed, mapWidth, mapHeight;
 
@@ -475,7 +475,7 @@ public class Matopeli {
                 mapWidth  = Integer.parseInt(args[2]);  // Kartan leveys
                 mapHeight = Integer.parseInt(args[1]); // Kartan korkeus
             } catch(ArrayIndexOutOfBoundsException | NumberFormatException e) {
-            	throw new Matopeli.CommandlineArgsException(e.getMessage());
+                throw new Matopeli.CommandlineArgsException(e.getMessage());
             }
                     
             // Alustetaan peli-instanssi halutuilla tiedoilla
@@ -505,24 +505,22 @@ public class Matopeli {
           catch(CommandlineArgsException e) {
             // Tulostetaan käyttöohjeet
             System.out.println("Invalid command-line argument!");
-            System.out.println("Bye, see you soon.");
 
             // Sammutetaan virtuaalikone
-            System.exit(EXIT_FAILURE);
+///            System.exit(EXIT_FAILURE);
         } // Käsitellään virhetilanteet
           catch(MatopeliException e) {
             e.printStackTrace();
             // Sammutetaan virtuaalikone
-            System.exit(EXIT_FAILURE);
+//            System.exit(EXIT_FAILURE);
         } // Tilanteessa jossa tulee tunnistamaton poikkeus, tulostetaan pino
           catch(Exception e) {
             e.printStackTrace();
             // Sammutetaan virtuaalikone
-            System.exit(EXIT_FAILURE);
+//            System.exit(EXIT_FAILURE);
         }
 
         System.out.println("Bye, see you soon.");
-
         // Sammutetaan virtuaalikone
         System.exit(EXIT_SUCCESS);
     }
