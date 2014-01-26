@@ -26,7 +26,7 @@ public class Matopeli {
     // Debug-muuttuja testauksen tulosteiden saamiseksi (poista lopullisesta)
     public static final boolean DEBUG = false;
     
-    public class MatopeliException extends Exception {
+    public static class MatopeliException extends Exception {
         
         // V‰litet‰‰n yl‰luokalle viesti jolla halutaan virhe tuottaa
         public MatopeliException(String message) {
@@ -37,6 +37,16 @@ public class Matopeli {
         private static final long serialVersionUID = 1L; 
     };
 
+    public static class CommandlineArgsException extends Exception {
+        
+        // V‰litet‰‰n yl‰luokalle viesti jolla halutaan virhe tuottaa
+        public CommandlineArgsException(String message) {
+            super(message);
+        }
+
+        // Exception esittelee peritt‰viens‰ m‰‰ritett‰v‰ksi
+        private static final long serialVersionUID = 1L; 
+    };
     // Jotta saataisiin asioihin jotain j‰rke‰ tunkaistaan pelin asetukset asetusluokkaan
     public static class GameRules {
         public int MAX_WORMHOLES = 4;
@@ -169,7 +179,7 @@ public class Matopeli {
         /* *
          * Palauttaa true jos mato osuu itseens‰, muulloin false
          * */
-        public boolean move(WormAngle a) {
+        public boolean move(WormAngle a) throws MatopeliException {
             
             if (!turn(a)) return false;
             
@@ -203,7 +213,7 @@ public class Matopeli {
             return false;
         }
         
-        public boolean turn(WormAngle a) {
+        public boolean turn(WormAngle a) throws MatopeliException {
             switch(a) {
                 case UP:
                     if (this.angle == WormAngle.DOWN)  return false;
@@ -217,6 +227,8 @@ public class Matopeli {
                 case RIGHT:
                     if (this.angle == WormAngle.LEFT)  return false;
                     break;
+                case UNDEFINED:
+                    throw new MatopeliException("Tried to turn to angle UNKNOWN");
             }
             this.angle = a;
             return true;
@@ -350,7 +362,7 @@ public class Matopeli {
         food = new Food(mergeArrays(map.toCharArray(), worm.toCharArray())); //Ruoka
     }
     
-    public void run() {
+    public void run() throws MatopeliException {
         boolean validCommand;
         // K‰ytt‰j‰n syˆtt‰m‰ komento
         char command;
@@ -453,9 +465,18 @@ public class Matopeli {
             /* Muut juoksevat, komentorivilt‰ luettavat tiedot.
              * Jos tiedoissa on vikaa, poikkeukset hoitavat tilanteen ja peli keskeytyy
              */ 
-            int randSeed = Integer.parseInt(args[0]),  // Satunnaislukusiemen
-                mapWidth = Integer.parseInt(args[2]),  // Kartan leveys
+            
+            if (args.length != 3) throw new MatopeliException("Invalid count of command-line parameters");
+
+            int randSeed, mapWidth, mapHeight;
+
+            try {
+                randSeed  = Integer.parseInt(args[0]);  // Satunnaislukusiemen
+                mapWidth  = Integer.parseInt(args[2]);  // Kartan leveys
                 mapHeight = Integer.parseInt(args[1]); // Kartan korkeus
+            } catch(ArrayIndexOutOfBoundsException | NumberFormatException e) {
+            	throw new Matopeli.CommandlineArgsException(e.getMessage());
+            }
                     
             // Alustetaan peli-instanssi halutuilla tiedoilla
             Matopeli game = new Matopeli( rules, randSeed, mapWidth, mapHeight ); 
@@ -473,23 +494,37 @@ public class Matopeli {
                  * */
                 System.err.println("Fatal exception(NullPointerException) while game(Matopeli).run()");
                 throw e;
+            } catch(MatopeliException e) {
+                /* *
+                 * MatopeliException : On tehty jotain laitonta ja kovasti tuhmaa
+                 * */
+                throw e;
             }
             
         } // K‰sitell‰‰n virhetilanteet
-          catch(ArrayIndexOutOfBoundsException | NumberFormatException | MatopeliException e) { // Taulukko liian pieni
+          catch(CommandlineArgsException e) {
             // Tulostetaan k‰yttˆohjeet
             System.out.println("Invalid command-line argument!");
-
-        } // Tilanteessa jossa tulee tunnistamaton poikkeus, tulostetaan pino
-          catch(Exception e) {
-            e.printStackTrace();
-
-        } finally {
             System.out.println("Bye, see you soon.");
 
             // Sammutetaan virtuaalikone
-            System.exit(0);
+            System.exit(EXIT_FAILURE);
+        } // K‰sitell‰‰n virhetilanteet
+          catch(MatopeliException e) {
+            e.printStackTrace();
+            // Sammutetaan virtuaalikone
+            System.exit(EXIT_FAILURE);
+        } // Tilanteessa jossa tulee tunnistamaton poikkeus, tulostetaan pino
+          catch(Exception e) {
+            e.printStackTrace();
+            // Sammutetaan virtuaalikone
+            System.exit(EXIT_FAILURE);
         }
+
+        System.out.println("Bye, see you soon.");
+
+        // Sammutetaan virtuaalikone
+        System.exit(EXIT_SUCCESS);
     }
 
     /* *
