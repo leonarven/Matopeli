@@ -26,6 +26,16 @@ public class Matopeli {
     // Debug-muuttuja testauksen tulosteiden saamiseksi (poista lopullisesta)
     public static final boolean DEBUG = false;
     
+    public static final void DEBUG(String msg, Exception e) {
+        if (!DEBUG) return;
+        
+        System.err.println("DEBUG: "+msg);
+        if (e != null) e.printStackTrace(System.err);
+    }
+    public static final void DEBUG(String msg) {
+        DEBUG(msg, null);
+    }
+    
     public static class MatopeliException extends Exception {
         
         // V‰litet‰‰n yl‰luokalle viesti jolla halutaan virhe tuottaa
@@ -181,7 +191,10 @@ public class Matopeli {
          * */
         public boolean move(WormAngle a) throws MatopeliException {
             
-            if (!turn(a)) return false;
+            if (!turn(a)) {
+                DEBUG("Cannot turn to "+a+" (old angle "+this.angle()+")"); // FIXME: DEBUG
+                return false;
+            }
             
             switch(this.angle) {
                 case UP:    this.y(this.y()-1); break;
@@ -208,7 +221,10 @@ public class Matopeli {
             if (wormMatrix[this.y()][this.x()] <= 0) {
                 // Sijoitetaan uusi p‰‰(maksimiarvo) uuteen sijaintiin
                 wormMatrix[this.y()][this.x()] = this.wormmax;
-            } else return true; // Osuttiin matoon itseens‰
+            } else {
+                DEBUG("wormMatrix[this.y()][this.x()] > 0"); // FIXME: DEBUG
+                return true; // Osuttiin matoon itseens‰
+            }
 
             return false;
         }
@@ -254,20 +270,49 @@ public class Matopeli {
                 }
             }
             // K‰‰nnet‰‰n madon oikea suunta
-/*            if      (wormMatrix[this.x()-1][this.y()] == this.wormmax-1) this.angle = WormAngle.RIGHT;
-            else if (wormMatrix[this.x()+1][this.y()] == this.wormmax-1) this.angle = WormAngle.LEFT;
-            else if (wormMatrix[this.x()][this.y()-1] == this.wormmax-1) this.angle = WormAngle.DOWN;
-            else if (wormMatrix[this.x()][this.y()+1] == this.wormmax-1) this.angle = WormAngle.UP;
- */           
-            this.angle = WormAngle.UNDEFINED;
+            this.angle = detectAngle();
+            DEBUG("Worm::turnAround: New angle "+this.angle);
+            
+//            this.angle = WormAngle.UNDEFINED;
         }
 
         // Kauniimpi tapa arvon noutamiseksi
         public int length() { return this.wormmax; }
 
+        public int mapX(int x) {
+            int w = wormMatrix[0].length;
+            
+            if (x < 0) x = x + w;
+            else if (x >= w) x = x - w - 1;
+
+            return x;
+        }
+
+        public int mapY(int y) {
+            int h = wormMatrix.length;
+                
+            if (y < 0) y = y + h;
+            else if (y >= h) y = y - h - 1;
+
+            return y;
+        }
+
+        public WormAngle detectAngle() {
+            int x = this.x(),
+                y = this.y();
+            
+            if      (wormMatrix[y][mapX(x-1)] == this.wormmax-1) return WormAngle.RIGHT;
+            else if (wormMatrix[y][mapX(x+1)] == this.wormmax-1) return WormAngle.LEFT;
+            else if (wormMatrix[mapY(y-1)][x] == this.wormmax-1) return WormAngle.DOWN;
+            else if (wormMatrix[mapY(y+1)][x] == this.wormmax-1) return WormAngle.UP;
+
+            return WormAngle.UNDEFINED;
+        }
+        
         // Muutetaan mato-matriisi merkkitaulukoksi
         public char[][] toCharArray() {
             char[][] matrix = new char[mapheight][mapwidth];
+            char[] debug_charArray = {'1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n', 'o', 'p', 'q'};
             
             // L‰pik‰yd‰‰n jokainen matriisin alkio
             for(int y = 0; y < mapheight; y++)
@@ -286,7 +331,7 @@ public class Matopeli {
                     if (Matopeli.DEBUG) {
                         if (wormMatrix[y][x] <= 0) 
                              matrix[y][x] = SYMBOL_BLANK;
-                        else matrix[y][x] = (""+wormMatrix[y][x]).charAt(0);
+                        else matrix[y][x] = debug_charArray[this.wormmax - wormMatrix[y][x]];
                     } 
                 }
             return matrix;
@@ -296,7 +341,6 @@ public class Matopeli {
             return this.angle;
         }
     }
-    
     /* *
      * Ruoka-luokka
      * */
@@ -399,7 +443,10 @@ public class Matopeli {
             // Jos halutaan liikkua (ollaan annettu liikkumisk‰sky johonkin suuntaan 
             if (angle != null)
                 // Jos Worm::move palauttaa true, niin mato on osunut itseens‰
-                if (worm.move(angle)) keepRunning = false;
+                if (worm.move(angle)) {
+                    keepRunning = false;
+                    DEBUG("DEBUG: worm.move("+angle+") == true"); // FIXME: DEBUG
+                }
 
             // Onko mato syˆm‰ss‰ ruoan
             if (worm.equal(food)) {
@@ -411,7 +458,10 @@ public class Matopeli {
             map.update(worm);
             
             // Tarkastellaan karttaan tehtyj‰ reiki‰ ja jos liikaa, niin lopetetaan
-            if (map.wormholes() >= rules.MAX_WORMHOLES) keepRunning = false;
+            if (map.wormholes() >= rules.MAX_WORMHOLES) {
+                keepRunning = false;
+                DEBUG("map.wormholes() >= rules.MAX_WORMHOLES"); // FIXME: DEBUG
+            }
         }
     }
     
@@ -458,7 +508,7 @@ public class Matopeli {
          * Alustetaan peli ja k‰sitell‰‰n poikkeukset
          * */
         try {
-        
+
             // Pelin s‰‰nnˆt
             MatopeliRules rules = new MatopeliRules();
 
@@ -487,6 +537,8 @@ public class Matopeli {
              * */
             try {
                 game.run();
+
+                DEBUG("game.run() stopped"); // FIXME: DEBUG
             } catch(NullPointerException e) {
                 /* *
                  * NullPointerException : Miten t‰h‰n p‰‰stiin? Peli‰ ei alustettu. Ei n‰in voi oikeasti k‰yd‰.
@@ -494,7 +546,7 @@ public class Matopeli {
                  * */
                 System.err.println("Fatal exception(NullPointerException) while game(Matopeli).run()");
                 throw e;
-            } catch(MatopeliException e) {
+            } catch(Exception e) {
                 /* *
                  * MatopeliException : On tehty jotain laitonta ja kovasti tuhmaa
                  * */
@@ -508,11 +560,6 @@ public class Matopeli {
 
             // Sammutetaan virtuaalikone
 ///            System.exit(EXIT_FAILURE);
-        } // K‰sitell‰‰n virhetilanteet
-          catch(MatopeliException e) {
-            e.printStackTrace();
-            // Sammutetaan virtuaalikone
-//            System.exit(EXIT_FAILURE);
         } // Tilanteessa jossa tulee tunnistamaton poikkeus, tulostetaan pino
           catch(Exception e) {
             e.printStackTrace();
