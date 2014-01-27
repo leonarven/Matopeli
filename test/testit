@@ -42,3 +42,20 @@ Lista ei-toimivista(-) ja toimivista(+) testeistä
 + vaihda    1  5  10
 + virhe1    1  5  x
 
+24.1. klo 10:15
++ hetipois  1  5  10
++ kierto1   1  4  11
++ kierto2   63 13 7
++ liiku     1  5  10
+ - pakita    14 5  7
++ silmukka1 5  3  10
++ silmukka2 2  7  7
++ syo       1  5  10
+ - tayta     123 4 8
++ tehtanto  1  5  10
++ tormaa1   1  5  10
++ tormaa2   1  5  10
++ vaihda    1  5  10
++ virhe1    1  5  x
++ virhe2    11 22 33 44
+

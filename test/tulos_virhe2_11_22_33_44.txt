@@ -1,0 +1,5 @@
+~~~~~~~~~~~
+~ W O R M ~
+~~~~~~~~~~~
+Invalid command-line argument!
+Bye, see you soon.
