@@ -88,6 +88,12 @@ public class Matopeli {
     };
     
     public abstract class MatopeliGrid {
+        protected char[][] matrix;
+        
+        public MatopeliGrid(char[][] matrix) {
+        	this.matrix = matrix;
+        }
+        
         public abstract char[][] toCharArray();
     }
     
@@ -128,11 +134,10 @@ public class Matopeli {
     }
 
     public class Map extends MatopeliGrid {
-        private char[][] matrix;
         private int wormholes;
         
         public Map(int width, int height) {
-            matrix = new char[height][width];
+            super(new char[height][width]);
             wormholes = 0;
             
             for( int y = 0; y < height; y++ )
